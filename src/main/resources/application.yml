@@ -7,3 +7,5 @@ spring:
       port: 8500
       discovery:
         instanceId: ${spring.application.name}
+      config:
+        enabled: true
