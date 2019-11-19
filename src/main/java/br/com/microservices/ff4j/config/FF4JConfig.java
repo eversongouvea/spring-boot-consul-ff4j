@@ -1,9 +1,12 @@
 package br.com.microservices.ff4j.config;
 
+import javax.sql.DataSource;
+
 import org.ff4j.FF4j;
 import org.ff4j.consul.ConsulConnection;
 import org.ff4j.consul.store.FeatureStoreConsul;
 import org.ff4j.consul.store.PropertyStoreConsul;
+import org.ff4j.springjdbc.store.EventRepositorySpringJdbc;
 import org.ff4j.web.FF4jDispatcherServlet;
 import org.ff4j.web.embedded.ConsoleServlet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,9 @@ import com.orbitz.consul.Consul;
 @ConditionalOnClass({ ConsoleServlet.class, FF4jDispatcherServlet.class })
 public class FF4JConfig extends SpringBootServletInitializer {
 
-
+	@Autowired
+	private DataSource dataSource;
+	
 	@Autowired
 	Consul consul;
 
@@ -53,6 +58,7 @@ public class FF4JConfig extends SpringBootServletInitializer {
 		FF4j ff4j = new FF4j();
 		ff4j.setFeatureStore(featureStoreConsul);
 		ff4j.setPropertiesStore(propertyStoreConsul);
+		ff4j.setEventRepository(new EventRepositorySpringJdbc(dataSource));
 		ff4j.audit(true);
 		
 		

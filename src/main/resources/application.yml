@@ -1,4 +1,14 @@
 spring:
+  datasource:
+     url: jdbc:sqlserver://localhost:11433;databaseName=FF4J
+     username: SA
+     password: DockerSql2017!    
+  jpa:
+      show-sql: true
+      hibernate.ddl-auto : validate
+      properties:
+        hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+        hibernate.default_schema: dbo
   application:
     name: ff4j-monitor
   cloud:
@@ -9,3 +19,8 @@ spring:
         instanceId: ${spring.application.name}
       config:
         enabled: true
+        
+        
+        
+        
+        
