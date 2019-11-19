@@ -1,0 +1,24 @@
+ <features>
+
+  <feature uid="ponderado" description="Ponderando em 50% o recurso apos ativado" enable="true">
+   <flipstrategy class="org.ff4j.strategy.PonderationStrategy" >
+     <param name="weight" value="0.5" />
+   </flipstrategy>
+  </feature>
+
+ <feature-group name="release-01" >
+
+  <feature uid="mensagem" description="Mensagem de boas vindas" enable="false">
+   <custom-properties>
+    <property name="dia" value="Um bom dia a todos" />
+    <property name="noite" value="Uma ótima noite a todos" />
+   </custom-properties>
+  </feature>
+
+  <feature uid="frete" description="Calculo do frete" enable="false">
+  </feature>
+
+ </feature-group>
+
+ </features>
+
