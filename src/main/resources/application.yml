@@ -1,3 +1,6 @@
+server:
+  port: 8090
+
 spring:
   datasource:
      url: jdbc:sqlserver://localhost:11433;databaseName=FF4J
